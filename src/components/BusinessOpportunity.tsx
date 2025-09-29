@@ -22,22 +22,25 @@ const BusinessOpportunity: React.FC = () => {
     {
       title: 'Customer',
       subtitle: 'Your AI, Your Lifestyle',
-      description: 'Access powerful AI Buddies for personal growth and productivity.',
+      description: 'Upgrade your lifestyle with AI.',
       gradient: 'from-cyan-400 to-petrol-500',
+      glassClass: 'glass-card-cyan',
       icon: Building2
     },
     {
       title: 'Partner',
       subtitle: 'Share Mentify-AI, Grow Together',
-      description: 'Join our social commerce model, earn commissions by sharing AI Buddies.',
+      description: 'Share Mentify-AI, grow together.',
       gradient: 'from-petrol-400 to-cyan-500',
+      glassClass: 'glass-card-blue',
       icon: Users
     },
     {
       title: 'Associate',
       subtitle: 'Invest in the Future of AI',
-      description: 'Purchase positions in our profit pools and grow your wealth. No sales required.',
+      description: 'Invest in the future of intelligence.',
       gradient: 'from-cyan-500 to-purple-500',
+      glassClass: 'glass-card-purple',
       icon: Globe
     }
   ];
@@ -45,9 +48,9 @@ const BusinessOpportunity: React.FC = () => {
   return (
     <section id="business" className="py-20 bg-gradient-to-b from-coolGrey-900 via-petrol-800 to-coolGrey-900 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
+      <div className="floating-orbs">
+        <div className="floating-orb"></div>
+        <div className="floating-orb"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -62,13 +65,15 @@ const BusinessOpportunity: React.FC = () => {
           {/* Compact Preview - Three Glass Cards */}
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {opportunities.map((opportunity, index) => (
-              <div key={opportunity.title} className={`glass-card rounded-3xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-slide-in-up`} style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={opportunity.title} className={`${opportunity.glassClass} rounded-3xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-slide-in-up hover-lift glass-shine`} style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="relative mb-6">
                   {/* Infinity symbol with gradient */}
-                  <div className={`w-20 h-20 bg-gradient-to-r ${opportunity.gradient} rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
-                    <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12l1.83 1.83c.97.97 2.34 1.53 3.77 1.53 2.94 0 5.32-2.39 5.32-5.32S21.54 6.62 18.6 6.62zM6.62 6.62c-2.94 0-5.32 2.39-5.32 5.32s2.38 5.32 5.32 5.32c1.44 0 2.8-.56 3.77-1.53L12 13.34 13.52 12l-1.83-1.83c-.97-.97-2.34-1.53-3.77-1.53z"/>
+                  <div className="w-20 h-20 mx-auto mb-4 relative">
+                    <svg viewBox="0 0 24 24" className={`w-full h-full ${index === 0 ? 'text-cyan-400' : index === 1 ? 'text-blue-400' : 'text-purple-400'} infinity-glow`}>
+                      <path 
+                        d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12l1.83 1.83c.97.97 2.34 1.53 3.77 1.53 2.94 0 5.32-2.39 5.32-5.32S21.54 6.62 18.6 6.62zM6.62 6.62c-2.94 0-5.32 2.39-5.32 5.32s2.38 5.32 5.32 5.32c1.44 0 2.8-.56 3.77-1.53L12 13.34 13.52 12l-1.83-1.83c-.97-.97-2.34-1.53-3.77-1.53z" 
+                        fill="currentColor"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -83,7 +88,7 @@ const BusinessOpportunity: React.FC = () => {
           <div className="text-center">
             <button 
               onClick={toggleExpanded}
-              className="group px-10 py-5 glass-card text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold text-xl flex items-center mx-auto"
+              className="group glass-button px-10 py-5 text-white rounded-full font-semibold text-xl flex items-center mx-auto hover-lift"
             >
               {isExpanded ? 'Show Less' : 'Explore Opportunities'}
               {isExpanded ? 
@@ -121,11 +126,14 @@ const BusinessOpportunity: React.FC = () => {
                     </ul>
                   </div>
                   <div className="relative">
-                    <img 
-                      src="/infinity__1_-removebg-preview.png" 
-                      alt="Opportunity" 
-                      className="w-full max-w-sm mx-auto object-contain animate-float infinity-glow"
-                    />
+                    <div className="w-80 h-80 mx-auto relative">
+                      <svg viewBox="0 0 24 24" className="w-full h-full text-cyan-400 infinity-glow animate-float">
+                        <path 
+                          d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12l1.83 1.83c.97.97 2.34 1.53 3.77 1.53 2.94 0 5.32-2.39 5.32-5.32S21.54 6.62 18.6 6.62zM6.62 6.62c-2.94 0-5.32 2.39-5.32 5.32s2.38 5.32 5.32 5.32c1.44 0 2.8-.56 3.77-1.53L12 13.34 13.52 12l-1.83-1.83c-.97-.97-2.34-1.53-3.77-1.53z" 
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -133,8 +141,8 @@ const BusinessOpportunity: React.FC = () => {
               {/* Detailed Opportunity Cards */}
               <div className="grid lg:grid-cols-3 gap-8 mb-12">
                 {/* Customer Details */}
-                <div className="glass-card rounded-3xl p-8">
-                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">The Customer</h4>
+                <div className="glass-card rounded-3xl p-8 hover-lift">
+                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">The Customers</h4>
                   <div className="space-y-4 text-white/80">
                     <p><strong>Products:</strong> AI Buddies, Premium Package, Main AI Flix Bot</p>
                     <p><strong>Features:</strong> Real-time voice, chat, image, and video communication</p>
@@ -144,8 +152,8 @@ const BusinessOpportunity: React.FC = () => {
                 </div>
 
                 {/* Partner Details */}
-                <div className="glass-card rounded-3xl p-8">
-                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">The Partner</h4>
+                <div className="glass-card rounded-3xl p-8 hover-lift">
+                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">The Ideal Partner</h4>
                   <div className="space-y-4 text-white/80">
                     <p><strong>Direct Commissions:</strong> Up to 20% across 6 levels</p>
                     <p><strong>Matching Bonuses:</strong> Up to 5% on team income</p>
@@ -155,8 +163,8 @@ const BusinessOpportunity: React.FC = () => {
                 </div>
 
                 {/* Associate Details */}
-                <div className="glass-card rounded-3xl p-8">
-                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">The Associate</h4>
+                <div className="glass-card rounded-3xl p-8 hover-lift">
+                  <h4 className="text-2xl font-bold text-cyan-300 mb-6">Empowering You with Technology</h4>
                   <div className="space-y-4 text-white/80">
                     <p><strong>Profit Pools:</strong> 10 pools from $1,900 to $10,000,000</p>
                     <p><strong>Revenue Share:</strong> 25% of company revenue distributed</p>
@@ -168,7 +176,7 @@ const BusinessOpportunity: React.FC = () => {
 
               {/* Download Pitch Deck */}
               <div className="text-center">
-                <button className="group px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-full hover:shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 font-semibold text-xl flex items-center mx-auto">
+                <button className="group glass-button px-10 py-5 text-white rounded-full font-semibold text-xl flex items-center mx-auto hover-lift">
                   <Download className="w-6 h-6 mr-3" />
                   Download Pitch Deck
                   <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />

@@ -12,33 +12,35 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden hero-gradient floating-reflections">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden hero-gradient">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        {/* Floating glass orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-petrol-400/20 to-transparent rounded-full"></div>
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-cyan-400/40 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-white/30 rounded-full animate-float delay-500"></div>
-        <div className="absolute bottom-40 left-20 w-3 h-3 bg-petrol-300/40 rounded-full animate-float delay-1000"></div>
-        <div className="absolute bottom-20 right-10 w-5 h-5 bg-cyan-400/40 rounded-full animate-float delay-1500"></div>
+      <div className="floating-orbs">
+        <div className="floating-orb"></div>
+        <div className="floating-orb"></div>
+        <div className="floating-orb"></div>
+      </div>
+
+      {/* Glowing Infinity Symbol */}
+      <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="w-32 h-32 relative animate-infinity-glow">
+          <svg viewBox="0 0 24 24" className="w-full h-full text-cyan-400 infinity-glow">
+            <path 
+              d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12l1.83 1.83c.97.97 2.34 1.53 3.77 1.53 2.94 0 5.32-2.39 5.32-5.32S21.54 6.62 18.6 6.62zM6.62 6.62c-2.94 0-5.32 2.39-5.32 5.32s2.38 5.32 5.32 5.32c1.44 0 2.8-.56 3.77-1.53L12 13.34 13.52 12l-1.83-1.83c-.97-.97-2.34-1.53-3.77-1.53z" 
+              fill="currentColor"
+            />
+          </svg>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center animate-fade-in-up">
           {/* Main Heading */}
-          <h1 className="text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-            Intelligence with
-            <span className="block bg-gradient-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text text-transparent">
-              Purpose
-            </span>
+          <h1 className="text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+            Intelligence with Purpose.
           </h1>
           
-          {/* Subheading */}
-          <p className="text-2xl lg:text-3xl text-white/90 mb-16 leading-relaxed max-w-4xl mx-auto font-light">
+          {/* Sub-Headline */}
+          <p className="text-xl lg:text-2xl text-white/90 mb-16 leading-relaxed max-w-4xl mx-auto font-light">
             Personalized AIs designed to guide your growth, health, career, relationships, and beyond.
           </p>
           
@@ -46,25 +48,15 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
             <button 
               onClick={() => scrollToSection('store')}
-              className="group px-10 py-5 glass-card text-white rounded-full hover:shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 font-semibold text-xl flex items-center"
+              className="group glass-button px-10 py-4 text-white rounded-full font-semibold text-lg flex items-center hover-lift"
             >
               Meet Your AI Team
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="group px-10 py-5 glass-morphism-white text-white rounded-full hover:bg-white/20 transition-all duration-300 font-semibold text-xl flex items-center">
-              <Play className="w-6 h-6 mr-3" />
+            <button className="group glass-button-secondary px-10 py-4 text-white rounded-full font-semibold text-lg flex items-center hover-lift">
+              <Play className="w-5 h-5 mr-3" />
               Watch Trailer
             </button>
-          </div>
-
-          {/* Infinity Logo */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-petrol-400/30 rounded-full blur-3xl"></div>
-            <img 
-              src="/infinity__1_-removebg-preview.png" 
-              alt="Mentify AI Infinity Logo" 
-              className="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto object-contain animate-float opacity-90 infinity-glow"
-            />
           </div>
         </div>
       </div>
