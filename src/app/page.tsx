@@ -4,20 +4,31 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import AboutUs from '@/components/AboutUs'
 import BusinessOpportunity from '@/components/BusinessOpportunity'
-import ProductList from '@/components/ProductList'
 import Shop from '@/components/Shop'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/50 dark:bg-gradient-to-br dark:from-black dark:via-neutral-900 dark:to-black transition-all duration-500">
+    <div className="min-h-screen smooth-scroll">
       <Header />
       <main>
         <Hero />
         <AboutUs />
         <BusinessOpportunity />
-        <ProductList />
         <Shop />
+        {/* Associate and Contact sections can be added here */}
+        <div id="associate" className="py-20 bg-petrol-900 text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-white mb-8">Associate Program</h2>
+            <p className="text-xl text-white/80 mb-8">Coming Soon - Advanced Associate Features</p>
+          </div>
+        </div>
+        <div id="contact" className="py-20 bg-coolGrey-900 text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-white mb-8">Contact Us</h2>
+            <p className="text-xl text-white/80 mb-8">Get in touch with our team</p>
+          </div>
+        </div>
       </main>
       <Footer />
     </div>
